@@ -1,0 +1,24 @@
+{
+  "name": "nuklear.c",
+  "version": "4.12.8",
+  "description": "A single-header ANSI C immediate mode cross-platform GUI library; Micha Mettke (2015).",
+  "keywords": [
+    "c",
+    "library",
+    "gui",
+    "immediate mode",
+    "gl",
+    "ui",
+    "toolkit"
+  ],
+  "homepage": "https://github.com/nodef/nuklear.c#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/nuklear.c/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/nuklear.c.git"
+  },
+  "license": "MIT",
+  "main": "nuklear.h"
+}
