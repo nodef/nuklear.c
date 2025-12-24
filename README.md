@@ -11,6 +11,8 @@ draw commands describing primitive shapes as output. So instead of providing a
 layered library that tries to abstract over a number of platform and
 render backends, it focuses only on the actual UI.
 
+<br>
+
 ## Features
 
 - Immediate-mode graphical user interface toolkit
@@ -27,17 +29,51 @@ render backends, it focuses only on the actual UI.
 - Optional font baker and vertex buffer output
 - [Documentation](https://Immediate-Mode-UI.github.io/Nuklear/)
 
+<br>
+
 ## Installation
 
 Run:
-```bash
+
+```sh
 $ npm i nuklear.c
 ```
 
 And then include `nuklear.h` as follows:
+
 ```c
+// main.c
+#define NUKLEAR_IMPLEMENTATION
 #include "node_modules/nuklear.c/nuklear.h"
+
+int main() { /* ... */ }
 ```
+
+And then compile with `clang` or `gcc` as usual.
+
+```bash
+$ clang main.c  # or, use gcc
+$ gcc   main.c
+```
+
+You may also use a simpler approach:
+
+```c
+// main.c
+#define NUKLEAR_IMPLEMENTATION
+#include <nuklear.h>
+
+int main() { /* ... */ }
+```
+
+If you add the path `node_modules/nuklear.c` to your compiler's include paths.
+
+```bash
+$ clang -I./node_modules/nuklear.c main.c  # or, use gcc
+$ gcc   -I./node_modules/nuklear.c main.c
+```
+
+<br>
 
 ## Building
 
@@ -47,13 +83,17 @@ by default when included and allows including this header in other headers
 and does not contain the actual implementation.
 
 The implementation mode requires defining the preprocessor macro
-`NK_IMPLEMENTATION` in *one* .c/.cpp file before `#include`ing this file, e.g.:
+`NUKLEAR_IMPLEMENTATION` in *one* .c/.cpp file before `#include`ing this file, e.g.:
+
 ```c
-#define NK_IMPLEMENTATION
+#define NUKLEAR_IMPLEMENTATION
 #include "nuklear.h"
 ```
+
 IMPORTANT: Every time you include "nuklear.h" you have to define the same optional flags.
 This is very important; not doing it either leads to compiler errors, or even worse, stack corruptions.
+
+<br>
 
 ## Gallery
 
@@ -63,6 +103,8 @@ This is very important; not doing it either leads to compiler errors, or even wo
 ![node](https://cloud.githubusercontent.com/assets/8057201/9976995/e81ac04a-5ef7-11e5-872b-acd54fbeee03.gif)
 ![skinning](https://cloud.githubusercontent.com/assets/8057201/15991632/76494854-30b8-11e6-9555-a69840d0d50b.png)
 ![gamepad](https://cloud.githubusercontent.com/assets/8057201/14902576/339926a8-0d9c-11e6-9fee-a8b73af04473.png)
+
+<br>
 
 ## Example
 
@@ -103,7 +145,10 @@ nk_end(&ctx);
 ```
 ![example](https://cloud.githubusercontent.com/assets/8057201/10187981/584ecd68-675c-11e5-897c-822ef534a876.png)
 
+<br>
+
 ## Bindings
+
 There are a number of nuklear bindings for different languages created by other authors.
 I cannot attest for their quality since I am not necessarily proficient in any of these
 languages. Furthermore there are no guarantee that all bindings will always be kept up to date:
@@ -123,13 +168,14 @@ languages. Furthermore there are no guarantee that all bindings will always be k
 - [CSharp/.NET](https://github.com/cartman300/NuklearDotNet) by cartman300@github.com
 - [V](https://github.com/nsauzede/vnk) by Nicolas Sauzede
 
-## Credits
-Developed by Micha Mettke and every direct or indirect contributor to the GitHub.
+<br>
 
+## Credits
+
+Developed by Micha Mettke and every direct or indirect contributor to the GitHub.
 
 Embeds `stb_texedit`, `stb_truetype` and `stb_rectpack` by Sean Barrett (public domain)
 Embeds `ProggyClean.ttf` font by Tristan Grimmer (MIT license).
-
 
 Big thank you to Omar Cornut (ocornut@github) for his [imgui](https://github.com/ocornut/imgui) library and
 giving me the inspiration for this library, Casey Muratori for handmade hero
@@ -137,9 +183,14 @@ and his original immediate-mode graphical user interface idea and Sean
 Barrett for his amazing single-header [libraries](https://github.com/nothings/stb) which restored my faith
 in libraries and brought me to create some of my own. Finally Apoorva Joshi for his single-header [file packer](http://apoorvaj.io/single-header-packer.html).
 
+<br>
+
 ## License
+
 Nuklear is avaliable under either the MIT License or public domain.
 See [LICENSE](LICENSE) for more info.
+
+<br>
 
 ## Reviewers guide
 
@@ -180,6 +231,6 @@ Reviewing changes to `demo/*`, `example/*` and other files in the repo:
 <br>
 
 
+[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/Immediate-Mode-UI/Nuklear)
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
 ![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/nuklear.c)
-[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/Immediate-Mode-UI/Nuklear)

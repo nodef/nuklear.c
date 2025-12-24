@@ -20,5 +20,9 @@
     "url": "git+https://github.com/nodef/nuklear.c.git"
   },
   "license": "MIT",
-  "main": "nuklear.h"
+  "author": "wolfram77@gmail.com",
+  "main": "nuklear.h",
+  "scripts": {
+    "test": "bash build.sh test"
+  }
 }
