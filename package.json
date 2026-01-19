@@ -1,6 +1,6 @@
 {
   "name": "nuklear.c",
-  "version": "4.12.8",
+  "version": "4.12.9",
   "description": "A single-header ANSI C immediate mode cross-platform GUI library; Micha Mettke (2015).",
   "keywords": [
     "c",
